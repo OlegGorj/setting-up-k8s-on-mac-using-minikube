@@ -4,24 +4,35 @@
  - kubectl
  - docker (for Mac)
  - minikube
- - virtualbox
+ - hyperkit
 
 
 OS: MacOS
-VM Driver: virtualbox
+VM Driver: hyperkit
 ISO version: v0.23.6
 Minikube: v0.28.1
 
-## VirtualBox
+## Hyperkit
+
+Install Hyperkit
+
+```
+brew install hyperkit
+```
 
 ## Kubernetes
 
 ## Minikube
 
+Make sure no VirtualBox processes are running
+```
+ps -ef | grep -Ei "vbo[x]|virtualbo[x]"
+```
+
 Start minikube
 
 ```
---vm-driver=virtualbox --loglevel 0 --alsologtostderr --extra-config=apiserver.service-node-port-range=90-32000 --v=0
+start --loglevel=0 --logtostderr --v=10 --vm-driver hyperkit
 ```
 
 Status:
@@ -33,22 +44,6 @@ minikube ssh sudo systemctl is-active kubelet
 
 ### Troubleshooting
 
-Login to VBox:
-
-```
-minikube ssh bash
-```
-
-In the machine:
-
-```
-bash-4.4$ sudo su -
-
-# docker ps
-CONTAINER ID        IMAGE                                     COMMAND                  CREATED             STATUS              PORTS               NAMES
-
-
-```
 
 
 
@@ -56,5 +51,9 @@ CONTAINER ID        IMAGE                                     COMMAND           
 
 https://github.com/kubernetes/minikube/issues/1618
 https://github.com/kubernetes/minikube/issues/2765
+https://github.com/kubernetes/minikube/issues/2127
+https://github.com/kubernetes/minikube/issues/2456
+https://github.com/kubernetes/minikube/issues/2841
+https://github.com/kubernetes/minikube/issues/2554
 
 ---
