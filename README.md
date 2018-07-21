@@ -1,8 +1,8 @@
-# Notes on how to install and setup K8s cluster on local machine (macOs)
+# Notes on how to install and setup K8s cluster on local machine (on Mac OS)
 
 ## Prerequisites
  - kubectl
- - docker (for Mac)
+ - docker (for Mac) - optional
  - minikube
  - hyperkit
 
@@ -22,11 +22,23 @@ brew install hyperkit
 
 ## Kubernetes
 
+Install Kubernetes (https://kubernetes.io/docs/tasks/tools/install-kubectl/):
+
+```
+brew install kubernetes-cli
+```
+
 ## Minikube
 
-Make sure no VirtualBox processes are running
+Given the known issue of VirtualBox conflicts with Hyperkit, make sure no VirtualBox processes are running
 ```
 ps -ef | grep -Ei "vbo[x]|virtualbo[x]"
+```
+
+Install Minikube (https://github.com/kubernetes/minikube/releases):
+
+```
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.28.1/minikube-darwin-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/
 ```
 
 Start minikube
