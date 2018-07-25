@@ -1,4 +1,4 @@
-# Notes on how to install and setup K8s cluster on local machine (on Mac OS)
+# Notes on how to install and setup K8s cluster on local machine (tested on Mac OS)
 
 ## Prerequisites
  - kubectl
