@@ -44,7 +44,7 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.28.1/minik
 Start minikube
 
 ```
-start --loglevel=0 --logtostderr --v=10 --vm-driver hyperkit
+minikube start --loglevel=0 --logtostderr --v=10 --vm-driver hyperkit
 ```
 
 Status:
